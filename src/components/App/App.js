@@ -14,7 +14,8 @@ import Popup from '../Popup/Popup';
 import * as popupTexts from '../utils/texts';
 import Footer from '../Footer/Footer';
 import Roli from '../Roli/Roli';
-import Forma from '../Forma/Forma';
+// import Forma from '../Forma/Forma';
+import Navigation from '../Navigation/Navigation';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
   const [addCountCards, setAddCountCards] = React.useState(3);
   const [cardTitle, setCardTitle] = React.useState('');
   const [openPopup, setOpenPopup] = React.useState(false);
+  const [openNavigation, setOpenNavigation] = React.useState(false);
   const [btnId, setBtnId] = React.useState(1);
   const [texts, setTexts] = React.useState(popupTexts.texts1);
 
@@ -38,6 +40,9 @@ function App() {
     countCardsOnPage();
   }, [pageWidth])
 
+  function handleOpenNavigation() {
+    setOpenNavigation(!openNavigation);
+  }
 
   function handleActivateButton(num) {
     setBtnId(num);
@@ -63,19 +68,19 @@ function App() {
 
   function handleCloseAllPopups() {
     setOpenPopup(false);
+    setOpenNavigation(false);
   }
 
   function countCardsOnPage() {
-
     if (pageWidth >= 1440) {
       setCountCards(9);
       setAddCountCards(3);
       return;
-    } else if (769 <= pageWidth < 1440) {
+    } else if (pageWidth > 768) {
       setCountCards(6);
       setAddCountCards(2);
       return;
-    } else if (pageWidth < 480) {
+    } else if (768 > pageWidth) {
       setCountCards(3);
       setAddCountCards(2);
       return;
@@ -84,14 +89,24 @@ function App() {
 
   function handleAddMoreCards() {
     countCardsOnPage();
-    console.log(countCards);
     setCountCards(countCards + addCountCards);
   }
 
   function newPageSize() {
     setTimeout(() => {
-      setPagewidth(document.documentElement.scrollWidth)
+      setPagewidth(getWidth())
     }, 1000)
+  }
+
+  function getWidth() {
+
+    if (document.documentElement && document.documentElement.clientWidth) {
+      return document.documentElement.clientWidth;
+    }
+
+    if (document.body) {
+      return document.body.clientWidth;
+    }
   }
 
   return (
@@ -99,23 +114,24 @@ function App() {
       <Route exact path='/'>
         <Redirect to='/mentor/programming' />
       </Route>
-      <Header />
-      <Promo />
+      <Header pageWidth={pageWidth} openNavigation={handleOpenNavigation} />
+      <Promo pageWidth={pageWidth} />
       <Expert />
       <Quiz executeScroll={executeScroll} />
       <Roli />
-      <Profi />
+      <Profi pageWidth={pageWidth} />
       <Banner />
       <Route path='/mentor'>
-        <VacancyMentor vacancyRef={vacancyRef} countCards={countCards} clickOnVacancie={handleClickOnVacancie} addMoreCards={handleAddMoreCards} />
+        <VacancyMentor pageWidth={pageWidth} vacancyRef={vacancyRef} countCards={countCards} clickOnVacancie={handleClickOnVacancie} addMoreCards={handleAddMoreCards} />
       </Route>
       <Route path='/review'>
-        <VacancyReview vacancyRef={vacancyRef} countCards={countCards} clickOnVacancie={handleClickOnVacancie} addMoreCards={handleAddMoreCards} />
+        <VacancyReview pageWidth={pageWidth} vacancyRef={vacancyRef} countCards={countCards} clickOnVacancie={handleClickOnVacancie} addMoreCards={handleAddMoreCards} />
       </Route>
       <FeedBack />
       <Popup isOpen={openPopup} title={cardTitle} onClose={handleCloseAllPopups} btnId={btnId} activateButton={handleActivateButton} texts={texts} />
-      <Forma />
+      {/* <Forma /> */}
       <Footer />
+      <Navigation isOpen={openNavigation} onClose={handleCloseAllPopups} />
     </div>
   );
 }

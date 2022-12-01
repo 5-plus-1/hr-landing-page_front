@@ -2,13 +2,21 @@
   background-color: #000000;
   color: #FFFFFF;
   transition: background-color 0.5s;
+  padding: 0 120px;
 }
 
 .quiz_result-active {
   background-color: #FFFFFF;
 }
 
+.quiz__presection {
+  margin: 0;
+  height: 120px;
+  padding: 0;
+}
+
 .quiz__container {
+  background-color: #000000;
   max-width: 1200px;
   display: flex;
   align-items: center;
@@ -21,6 +29,7 @@
 
 .quiz__slider-and-jobs {
   display: flex;
+  position: relative;
   align-items: center;
   margin: 0 0 60px;
 }
@@ -147,9 +156,9 @@
 
 .quiz__result-title {
   font-weight: 500;
-  font-size: 40px;
-  line-height: 44px;
-  margin: 0 0 50px;
+  font-size: 32px;
+  line-height: 36px;
+  margin: 0 0 40px;
 }
 
 .quiz__result-buttons {
@@ -188,4 +197,119 @@
 .quiz__result-button_white:hover {
   background-color: #000000;
   color: #FFFFFF;
+}
+
+@media screen and (max-width: 1280px) {
+  .quiz__container {
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    margin: 0 auto;
+    padding: 80px 0;
+  }
+
+  .quiz__slider-container {
+    width: 614px;
+    padding: 0px;
+  }
+
+  .quiz__job-title {
+    position: absolute;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .quiz__job-title_mentor {
+    bottom: 50px;
+    left: 20px;
+  }
+
+  .quiz__job-title_review {
+    bottom: 50px;
+    right: 0;
+  }
+
+  .quiz__title {
+    font-size: 32px;
+    line-height: 36px;
+    margin: 0 0 60px;
+  }
+
+  .quiz__line {
+    width: 576px;
+    height: 6px;
+  }
+
+  .quiz__circle {
+    height: 52px;
+    width: 52px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .quiz {
+    max-width: 768px;
+    height: fit-content;
+  }
+
+  .quiz__circle {
+    height: 48px;
+    width: 48px;
+  }
+
+  .quiz__presection {
+    height: 112px;
+  }
+
+  .quiz__line {
+    width: 340px;
+    height: 6px;
+  }
+
+  .quiz__text {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 30px;
+  }
+
+  .quiz__container {
+    max-width: 768px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    margin: 0 auto;
+    padding: 60px 0;
+  }
+
+  .quiz__job-title {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    width: 92px;
+  }
+
+  .quiz__job-title_mentor {
+    bottom: 40px;
+    left: 140px;
+  }
+
+  .quiz__job-title_review {
+    bottom: 40px;
+    right: 140px;
+  }
+
+  .quiz__slider-and-jobs {
+    margin: 43px 0 70px;
+  }
+
+  .quiz__counter {
+    font-size: 16px;
+    line-height: 22px;
+    margin: 0 0 8px;
+  }
 }

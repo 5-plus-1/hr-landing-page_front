@@ -1,12 +1,12 @@
-/* eslint-disable no-console */
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import Dropdown from 'rc-dropdown';
-import 'rc-dropdown/assets/index.css';
-import Menu, { Item as MenuItem, Divider } from 'rc-menu';
-import ReactDOM from 'react-dom';
+ /* eslint-disable no-console */
+ import React from 'react';
+ import { useForm } from 'react-hook-form';
+ import Dropdown from 'rc-dropdown';
+ import 'rc-dropdown/assets/index.css';
+ import Menu, { Item as MenuItem, Divider } from 'rc-menu';
+ import ReactDOM from 'react-dom';
 
-const Forma = () => {
+// const Forma = () => {
 
     const [nameInputValue, setNameInputValue] = React.useState('');
     const [telegramInputValue, setTelegramInputValue] = React.useState('');
@@ -17,23 +17,23 @@ const Forma = () => {
         <path d="M1.5 1.71094L5.5 5.71094L9.5 1.71094" stroke="#1D6BF3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>)
 
-    const menu = (
-        <Menu onSelect={onSelect}>
-            <MenuItem key="Программирование">Программирование</MenuItem>
-            <Divider />
-            <MenuItem key="Анализ данных">Анализ данных</MenuItem>
-            <Divider />
-            <MenuItem key="Дизайн">Дизайн</MenuItem>
-            <Divider />
-            <MenuItem key="Маркетинг">Маркетинг</MenuItem>
-            <Divider />
-            <MenuItem key="Менеджмент">Менеджмент</MenuItem>
-        </Menu>
-    );
+     const menu = (
+         <Menu onSelect={onSelect}>
+             <MenuItem key="Программирование">Программирование</MenuItem>
+             <Divider />
+             <MenuItem key="Анализ данных">Анализ данных</MenuItem>
+             <Divider />
+             <MenuItem key="Дизайн">Дизайн</MenuItem>
+             <Divider />
+             <MenuItem key="Маркетинг">Маркетинг</MenuItem>
+             <Divider />
+             <MenuItem key="Менеджмент">Менеджмент</MenuItem>
+         </Menu>
+     );
 
-    function onSelect({ key }) {
-        setButtonTitle(key);
-    }
+     function onSelect({ key }) {
+         setButtonTitle(key);
+     }
 
     function handleNameInputChange(e) {
         setNameInputValue(e.target.value)
@@ -60,16 +60,15 @@ const Forma = () => {
         }
     }
 
+     const {
+         register,
+         formState: { errors, isDirty, isValid },
+         handleSubmit,
+     } = useForm({ mode: "onChange" });
 
-    const {
-        register,
-        formState: { errors, isDirty, isValid },
-        handleSubmit,
-    } = useForm({ mode: "onChange" });
-
-    const onSubmit = (data) => {
-        //  onLogin({ email: data.email, password: data.password })
-    }
+     const onSubmit = (data) => {
+         //  onLogin({ email: data.email, password: data.password })
+     }
 
     return (
         <section className="formaSauvka">
@@ -156,18 +155,19 @@ const Forma = () => {
                     </textarea>
                     <span className={`formaSauvka__text-error ${errors.stek ? 'formaSauvka__text-error_visible' : ''}`}>{errors.stek ? errors.stek.message : ''}</span>
 
-                    <div className="formaSauvka__checkbox">
-                        <label className="custom-checkbox">
-                            <span className='star'>*</span>
-                            <input className='formaSauvka__checkbox-item' type="checkbox" name="soglacie" value="yes" />
-                            <span>Я даю согласие АНО ДПО «ШАД» и ООО «ЯНДЕКС» на обработку указанных данных для целей рассмотрения анкеты и обратной связи по ней.</span>
-                        </label>
-                    </div>
+                     <div className="formaSauvka__checkbox">
+                         <label className="custom-checkbox">
+                             <span className='star'>*</span>
+                             <input className='formaSauvka__checkbox-item' type="checkbox" name="soglacie" value="yes" />
+                             <span>Я даю согласие АНО ДПО «ШАД» и ООО «ЯНДЕКС» на обработку указанных данных для целей рассмотрения анкеты и обратной связи по ней.</span>
+                         </label>
+                     </div>
 
-                    <button className="formaSauvka__submit-button" type="submit" >Отправить заявку</button>
-                </form>
-            </div>
-        </section>
-    );
-}
-export default Forma;
+                     <button className="formaSauvka__submit-button" type="submit" >Отправить заявку</button>
+                 </form>
+             </div>
+         </section>
+     );
+ }
+ 
+ export default Forma;

@@ -1,0 +1,260 @@
+.profi {
+  width: 100%;
+  padding: 120px;
+  box-sizing: border-box;
+}
+
+.profi__title {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 44px;
+  width: 83.3%;
+  text-align: start;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+.profi__container {
+  display: grid;
+  grid-template-columns: repeat(3, 31.7%);
+  column-gap: 30px;
+  grid-template-rows: repeat(2, 48.2%);
+  row-gap: 28px;
+  margin: 0 auto;
+}
+
+.profi__card {
+  width: 380px;
+  height: 374px;
+}
+
+.flip {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: .6s;
+}
+
+.profi__card:hover .flip {
+  transform: rotateY(180deg);
+}
+
+.profi__front {
+  width: 380px;
+  height: 374px;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  box-shadow: 2px 2px 15px rgba(16, 40, 84, 0.1);
+  border-radius: 32px;
+  gap: 16px;
+  transform: rotateY(0);
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+
+.profi__back {
+  display: flex;
+  flex-direction: column;
+  background: #1D6BF3;
+  border-radius: 32px;
+  width: 380px;
+  height: 374px;
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+
+.profi__text {
+  width: 332px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 36px;
+  color: #1A1B22;
+  align-self: stretch;
+  margin: 32px 0 0 24px;
+  text-align: start;
+}
+
+.profi__text-back {
+  width: 332px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: white;
+  padding: 0;
+  margin: 0 auto 0;
+  text-align: start;
+}
+
+.profi__text_size {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  margin-top: 0;
+}
+
+.profi_image {
+  width: 280px;
+  height: 186px;
+  margin: 0 auto 0 auto;
+}
+
+.profi__text-back:first-child {
+  margin: 32px auto 16px;
+}
+
+.profi__back-bottom {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: 32px;
+  margin-left: 24px;
+  width: 332px;
+}
+
+.profi__text-back_bottom {
+  margin: 0;
+}
+
+.profi__block {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+.profi__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profi__link_mobile {
+  width: 131px;
+  height: 50px;
+  border-radius: 100px;
+  border: 1px solid white;
+  text-decoration: none;
+}
+
+.profi__link-text {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+  color: white;
+}
+
+@media screen and (max-width: 1439px) {
+  .profi {
+    padding: 120px 60px;
+  }
+
+  .profi__container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .profi__block {
+    width: 790px;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .profi {
+    padding: 100px 16px;
+  }
+
+  .profi__text-back {
+    width: 266px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 8px auto 0;
+  }
+
+  .profi__text-back:first-child {
+    margin: 20px auto 0;
+  }
+
+  .profi__title {
+    font-size: 28px;
+    line-height: 36px;
+    text-align: start;
+    width: 306px;
+    margin: 0 auto 32px;
+  }
+
+  .profi__container {
+    overflow: auto;
+    display: flex;
+    margin: 0 auto;
+    width: 316px;
+    height: 380px;
+  }
+
+  .profi__overflow {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .profi__block {
+    width: 5000px;
+  }
+
+  .profi__front {
+    width: 306px;
+    height: 330px;
+    box-shadow: none;
+  }
+
+  .profi__back {
+    width: 286px;
+    height: 330px;
+  }
+
+  .profi__card {
+    margin: 11px 11px 15px;
+    width: 286px;
+    height: 330px;
+    overflow: hidden;
+    border: 1px solid #F0F1F3;
+    border-radius: 32px;
+    box-shadow: 2px 2px 15px rgba(16, 40, 84, 0.1);
+  }
+
+  .profi__text {
+    width: 274px;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+    align-self: stretch;
+    margin: 20px 16px 0 16px;
+    text-align: start;
+  }
+
+  .profi__text_size {
+    width: 274px;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 8px;
+  }
+
+  .profi__block {
+    width: 321px;
+  }
+
+  .profi__back-bottom {
+    width: 266px;
+  }
+
+  .profi__text-back_bottom {
+    width: 126px;
+  }
+
+  .profi__card:hover .flip {
+    transform: rotateY(0);
+  }
+}

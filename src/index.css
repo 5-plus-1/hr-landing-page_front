@@ -1,0 +1,16 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/YS.css);
+@import url(./components/App/App.css);
+@import url(./components/Header/Header.css);
+@import url(./components/Promo/Promo.css);
+@import url(./components/Profi/Profi.css);
+@import url(./components/Expert/Expert.css);
+@import url(./components/Quiz/Quiz.css);
+@import url(./components/Roli/Roli.css);
+@import url(./components/Vacancy/Vacancy.css);
+@import url(./components/Forma/Forma.css);
+@import url(./components/Banner/Banner.css);
+@import url(./components/FeedBack/FeedBack.css);
+@import url(./components/Popup/Popup.css);
+@import url(./components/Footer/Footer.css);
+@import url(./components/Navigation/Navigation.css);
